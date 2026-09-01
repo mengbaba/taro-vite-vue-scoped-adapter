@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 This file is maintained by [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) via the `pnpm release` flow.
 
+## [0.2.1](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/compare/v0.2.0...v0.2.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* skip scoped transform on H5 to keep native scoped and HMR consistency ([addd62a](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/commit/addd62ae9807a6bb33fc46361992c64f20c75cf0))
+
 ## [0.2.0](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/compare/v0.1.0...v0.2.0) (2026-09-01)
 
 
