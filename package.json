@@ -1,0 +1,79 @@
+{
+  "name": "taro-vite-vue-scoped-adapter",
+  "version": "0.1.0",
+  "description": "Vite 插件: 将 Taro + Vue3 中含 scoped 的样式转换为包根类方案, 解决小程序中 data-v 属性不渲染导致 scoped 选择器失效的问题 (自主实现核心转换逻辑, 零外部转换库依赖)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./webpack": {
+      "types": "./dist/webpack.d.ts",
+      "import": "./dist/webpack.js",
+      "require": "./dist/webpack.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "release": "bumpp --execute \"npx conventional-changelog -p angular -i CHANGELOG.md -s\" -m \"chore: release {tag}\"",
+    "prepublishOnly": "npm run build"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs}": "eslint --fix"
+  },
+  "keywords": [
+    "taro",
+    "vite",
+    "vue3",
+    "scoped",
+    "miniprogram",
+    "weapp"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengbaba/taro-vite-vue-scoped-adapter.git"
+  },
+  "homepage": "https://github.com/mengbaba/taro-vite-vue-scoped-adapter#readme",
+  "bugs": {
+    "url": "https://github.com/mengbaba/taro-vite-vue-scoped-adapter/issues"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.4.0"
+  },
+  "peerDependencies": {
+    "vite": "^4.0.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@types/node": "^20.19.43",
+    "bumpp": "^10.0.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "eslint": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "simple-git-hooks": "^2.11.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^4.5.14",
+    "vite-plugin-dts": "^3.9.1",
+    "vitest": "^0.34.6"
+  }
+}

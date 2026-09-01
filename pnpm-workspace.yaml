@@ -1,3 +1,8 @@
 # 独立仓库: 此文件让 pnpm 以本目录为 workspace 根, 不再向上查找
 packages:
   - '.'
+
+# pnpm 10: 放行以下依赖的安装脚本
+onlyBuiltDependencies:
+  - esbuild
+  - simple-git-hooks

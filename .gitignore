@@ -1,0 +1,5 @@
+node_modules
+dist
+
+# husky 残留产物 (本仓库使用 simple-git-hooks)
+.husky
