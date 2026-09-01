@@ -47,6 +47,11 @@ export default function taroViteVueScopedAdapter(options: TaroVueScopedAdapterOp
     // 必须 pre: 要在 @vitejs/plugin-vue 解析 SFC 之前改写源码
     enforce: 'pre',
     transform(code, id) {
+      // H5 端是真实 DOM, Vue 原生 scoped (data-v) 本就生效, 无需转换;
+      // 且本插件同时改写模板与样式, 会破坏 Vite HMR 的块级更新粒度
+      // (热更新时模板渲染函数与样式不同步刷新, 导致包装类与选择器错配、样式丢失),
+      // 故仅在小程序端 (TARO_PLATFORM !== 'web') 执行转换
+      if (process.env.TARO_PLATFORM === 'web') return null
       const filePath = id.split('?')[0]
       if (!filePath.endsWith('.vue') || !isInclude(filePath) || isExclude(filePath)) return null
       try {

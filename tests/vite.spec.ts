@@ -115,3 +115,27 @@ describe('Vite 插件选项透传', () => {
     expect(result!.code).not.toContain(':deep')
   })
 })
+
+describe('Vite 插件平台开关', () => {
+  // H5 端原生 scoped 即可生效, 且转换会破坏 HMR 块级更新粒度 (样式丢失), 必须跳过
+  it('TARO_PLATFORM=web (H5) 时不转换', () => {
+    process.env.TARO_PLATFORM = 'web'
+    try {
+      const plugin = create()
+      expect(callTransform(plugin, SFC, PAGE_ID)).toBeNull()
+    } finally {
+      delete process.env.TARO_PLATFORM
+    }
+  })
+
+  it('小程序端 (TARO_PLATFORM=mini) 正常转换', () => {
+    process.env.TARO_PLATFORM = 'mini'
+    try {
+      const plugin = create()
+      const result = callTransform(plugin, SFC, PAGE_ID)
+      expect(result!.code).toContain('taro-scoped-index-')
+    } finally {
+      delete process.env.TARO_PLATFORM
+    }
+  })
+})
