@@ -1,0 +1,3 @@
+# 独立仓库: 此文件让 pnpm 以本目录为 workspace 根, 不再向上查找
+packages:
+  - '.'
