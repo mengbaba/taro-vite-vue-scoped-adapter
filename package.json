@@ -29,7 +29,6 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "release": "bumpp --execute \"npx conventional-changelog -p angular -i CHANGELOG.md -s\" -m \"chore: release {tag}\"",
     "prepublishOnly": "npm run build"
   },
   "simple-git-hooks": {
@@ -66,8 +65,6 @@
     "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^19.0.0",
     "@types/node": "^20.19.43",
-    "bumpp": "^10.0.0",
-    "conventional-changelog-cli": "^5.0.0",
     "eslint": "^9.0.0",
     "lint-staged": "^15.0.0",
     "simple-git-hooks": "^2.11.0",
