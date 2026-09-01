@@ -177,16 +177,6 @@ The core module has no dependency on any bundler context; both the Vite plugin a
 - `scoped`-specific pseudo selectors such as `:deep()` / `:slotted()` / `:global()` are not transformed by default: after wrapping, the whole style block already lives inside the file's own scope, and plain descendant selectors cover most use cases; enable `transformPseudoSelectors: true` to expand them into plain selectors if needed
 - `scoped` styles with `lang="sass"` (indented syntax) or no `lang` (plain CSS) only get the `scoped` attribute removed, without content nesting: the former cannot be wrapped with braces, and mini program support for native CSS nesting is unreliable
 
-## Local Development
-
-```bash
-pnpm install        # Install dependencies (also installs git hooks via simple-git-hooks)
-pnpm test           # Run the vitest suite
-pnpm build          # Emits dist/ (ESM + CJS + d.ts)
-```
-
-Release flow: fully automated by [release-please](https://github.com/googleapis/release-please-action) — when conventional commits land on `main`, a Release PR is created automatically (version bump + CHANGELOG); merging that PR tags the release, and GitHub Actions runs the tests and publishes to npm. No local commands required.
-
 ## License
 
 MIT

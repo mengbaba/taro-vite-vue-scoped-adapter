@@ -175,16 +175,6 @@ src/
 - `:deep()` / `:slotted()` / `:global()` 等 `scoped` 专有伪类默认不做转换：包裹后整页样式已处于本文件作用域内，常规后代选择器即可覆盖绝大多数场景；确有需要可开启 `transformPseudoSelectors: true` 将其展开为普通选择器
 - `lang="sass"`（缩进语法）与无 `lang`（纯 CSS）的 `scoped` 样式只移除 `scoped` 属性、不做内容嵌套：前者无法用大括号包裹，后者小程序对原生 CSS 嵌套支持不可控
 
-## 本地开发
-
-```bash
-pnpm install        # 安装依赖（同时通过 simple-git-hooks 安装 git 钩子）
-pnpm test           # 运行 vitest 全量用例
-pnpm build          # 产出 dist/ (ESM + CJS + d.ts)
-```
-
-发布流程：由 [release-please](https://github.com/googleapis/release-please-action) 全自动完成——符合 conventional commit 规范的代码合并到 `main` 后，自动创建 Release PR（升版本号 + 生成 CHANGELOG）；合并该 PR 后自动打版本标签，由 GitHub Actions 跑测试并发布到 npm，全程无需本地执行命令。
-
 ## License
 
 MIT
