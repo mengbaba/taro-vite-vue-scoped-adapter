@@ -1,7 +1,8 @@
 {
   "name": "taro-vite-vue-scoped-adapter",
   "version": "0.1.0",
-  "description": "Vite 插件: 将 Taro + Vue3 中含 scoped 的样式转换为包根类方案, 解决小程序中 data-v 属性不渲染导致 scoped 选择器失效的问题 (自主实现核心转换逻辑, 零外部转换库依赖)",
+  "description": "Vite Plugin: Scoped CSS Adapter for Taro + Vue3",
+  "author": "simon.x",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
