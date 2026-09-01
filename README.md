@@ -180,10 +180,9 @@ src/
 pnpm install        # 安装依赖（同时通过 simple-git-hooks 安装 git 钩子）
 pnpm test           # 运行 vitest 全量用例
 pnpm build          # 产出 dist/ (ESM + CJS + d.ts)
-pnpm release        # 交互式发布：升版本 + 生成 CHANGELOG + commit + tag（发布动作由 CI 执行）
 ```
 
-发布流程：`pnpm release`（bumpp）升版本并基于 conventional commit 生成 CHANGELOG.md，推送 tag 后由 GitHub Actions 发布工作流跑测试并发布到 npm。
+发布流程：由 [release-please](https://github.com/googleapis/release-please-action) 全自动完成——符合 conventional commit 规范的代码合并到 `main` 后，自动创建 Release PR（升版本号 + 生成 CHANGELOG）；合并该 PR 后自动打版本标签，由 GitHub Actions 跑测试并发布到 npm，全程无需本地执行命令。
 
 ## License
 

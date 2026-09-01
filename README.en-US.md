@@ -182,10 +182,9 @@ The core module has no dependency on any bundler context; both the Vite plugin a
 pnpm install        # Install dependencies (also installs git hooks via simple-git-hooks)
 pnpm test           # Run the vitest suite
 pnpm build          # Emits dist/ (ESM + CJS + d.ts)
-pnpm release        # Interactive release: bump version + CHANGELOG + commit + tag (publishing runs in CI)
 ```
 
-Release flow: `pnpm release` (bumpp) bumps the version and generates CHANGELOG.md from conventional commits, then pushes the tag; the GitHub Actions release workflow runs tests and publishes to npm.
+Release flow: fully automated by [release-please](https://github.com/googleapis/release-please-action) — when conventional commits land on `main`, a Release PR is created automatically (version bump + CHANGELOG); merging that PR tags the release, and GitHub Actions runs the tests and publishes to npm. No local commands required.
 
 ## License
 
