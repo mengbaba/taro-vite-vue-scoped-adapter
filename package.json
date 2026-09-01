@@ -1,6 +1,6 @@
 {
   "name": "taro-vite-vue-scoped-adapter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Vite Plugin: Scoped CSS Adapter for Taro + Vue3",
   "author": "simon.x",
   "type": "module",

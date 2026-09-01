@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 This file is maintained by [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) via the `pnpm release` flow.
 
+## [0.2.0](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/compare/v0.1.0...v0.2.0) (2026-09-01)
+
+
+### Features
+
+* initial public release of taro-vite-vue-scoped-adapter ([e91cd34](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/commit/e91cd34cfb5452cd0d34c6afa759180431f2f39d))
+
+
+### Bug Fixes
+
+* **ci:** add release-please manifest file with current version ([875141a](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/commit/875141ad4eb98e3c6a37f6dd71045b4cf1ef3108))
+
 ## 0.1.0 (2026-09-01)
 
 ### Features
