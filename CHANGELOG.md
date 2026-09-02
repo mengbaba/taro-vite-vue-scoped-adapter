@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 This file is maintained by [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) via the `pnpm release` flow.
 
+## [0.2.2](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/compare/v0.2.1...v0.2.2) (2026-09-02)
+
+
+### Bug Fixes
+
+* skip transformation in webpack loader on H5 platform to match vite plugin ([8a08bec](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/commit/8a08bec3ee24e72dbd396db0abe138b923934570))
+
 ## [0.2.1](https://github.com/mengbaba/taro-vite-vue-scoped-adapter/compare/v0.2.0...v0.2.1) (2026-09-01)
 
 
