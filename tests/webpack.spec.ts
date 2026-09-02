@@ -88,3 +88,25 @@ describe('webpack loader options', () => {
     expect(out).toContain(`<view class="${wrapperClassNameFor(PAGE_PATH)}">`)
   })
 })
+
+describe('webpack loader 平台开关', () => {
+  // H5 端原生 scoped 即可生效, 且转换会破坏 HMR 块级更新粒度 (样式丢失), 必须跳过
+  it('TARO_PLATFORM=web (H5) 时不转换 (原样返回)', () => {
+    process.env.TARO_PLATFORM = 'web'
+    try {
+      expect(callViaGetOptions(PAGE_PATH, SFC)).toBe(SFC)
+      expect(callViaQuery(PAGE_PATH, SFC, { classPrefix: 'w4' })).toBe(SFC)
+    } finally {
+      delete process.env.TARO_PLATFORM
+    }
+  })
+
+  it('小程序端 (TARO_PLATFORM=mini) 正常转换', () => {
+    process.env.TARO_PLATFORM = 'mini'
+    try {
+      expect(callViaGetOptions(PAGE_PATH, SFC)).toContain('taro-scoped-index-')
+    } finally {
+      delete process.env.TARO_PLATFORM
+    }
+  })
+})

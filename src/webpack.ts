@@ -54,6 +54,11 @@ function readOptions(ctx: LoaderContext): TaroWebpackScopedLoaderOptions {
  * 转换失败直接抛出 (错误信息含插件名/文件路径/原因), 由 webpack 呈现为编译错误。
  */
 export default function taroVueScopedLoader(this: LoaderContext, source: string): string {
+  // H5 端是真实 DOM, Vue 原生 scoped (data-v) 本就生效, 无需转换;
+  // 且转换会破坏 HMR 的块级更新粒度 (热更新后样式丢失),
+  // 与 Vite 插件保持一致: 仅在小程序端 (TARO_PLATFORM !== 'web') 执行转换
+  if (process.env.TARO_PLATFORM === 'web') return source
+
   const options = readOptions(this)
   const filePath = this.resourcePath
   const { isInclude, isExclude } = resolveMatchers(options)
